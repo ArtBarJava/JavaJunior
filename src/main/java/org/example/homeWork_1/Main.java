@@ -36,6 +36,15 @@ public class Main {
             System.out.println();
         }
 
+        Map<String, List<Person>> groupedByDepartmentName = groupByDepartmentName(people);
+
+        for (Map.Entry<String, List<Person>> entry : groupedByDepartmentName.entrySet()) {
+            System.out.println("Department: " + entry.getKey());
+            for (Person person : entry.getValue()) {
+                System.out.println("  - " + person.getName() + ", Age: " + person.getAge() + ", Salary: " + person.getSalary());
+            }
+        }
+
         Map<String, Homework.Person> departmentOldestPerson = getDepartmentOldestPerson(people);
         departmentOldestPerson.forEach((department, person) -> {
             System.out.println("Department: " + department + ", Oldest Person: " + person.getName() + " (Age: " + person.getAge() + ")");
